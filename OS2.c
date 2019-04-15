@@ -25,11 +25,13 @@ void gotoxy(long x, long y)
            SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
       }
 /////////////////////////////////////
+//Creating Structure for the Process
 struct Process
 {
 	int P_ID,arrival_time,burst_time,left_burst_time,completion_time,waiting_time,turnaround_time,flag,round,level;
 };
 ////////////////////
+//For calculating and displayig the average waiting and average turn_around time
 average(struct Process P[n])
 {
 	int i;
@@ -49,6 +51,7 @@ average(struct Process P[n])
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
+//for interactive looking
 loading()
 {
 	system("cls");
@@ -94,6 +97,7 @@ loading()
 	}
 }
 ///////////////////////////////////////////////////////////////////////////////////////
+//Home page format
 homepage()
 {
 
@@ -146,6 +150,7 @@ homepage()
 }
 
 ////////////////////////////////////////////////////
+//creating frame for the Process table
 void frame()
 {
 
@@ -225,6 +230,7 @@ void frame()
 	}
 }
 /////////////////////////////////////////////////////////////////////////////
+//for displaying all the value inside the value
 void display(struct Process P[n])
 {
 	//frame();
@@ -299,6 +305,7 @@ void display(struct Process P[n])
 
 }
 ///////////////////////////////////////////////////////////////////////////////
+//main program executes here
 int main()
 {
 	homepage();
@@ -458,9 +465,7 @@ int main()
 				          break; 
 				    } 
 				}	
- //..................................................................................................upto this .
-
-		/////////////////////////////////////////////
+ //..................................................................................................upto this 
 
 	if(temp_round==3)
 	{
@@ -482,14 +487,12 @@ int main()
         }
         
         ///////////////////////////////////////////
-       	            //temp_opt=P[temp_i].left_burst_time;
 	        		total_time+=P[temp_i].left_burst_time;
 	        		P[temp_i].left_burst_time=0;
         ////////////////////////////////////////////
 
-        if(x==0)
+        if(x==0)//in case there is no process available in the queue
         {
-           //time_t+=1;
            total_time+=1;
 		}
 		else
